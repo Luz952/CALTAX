@@ -9,6 +9,7 @@ import ISS from './components/ISS'
 import ICMSST from './components/ICMSST'
 import IPI from './components/IPI'
 import PISCONFINS from './components/PISCONFINS'
+import logo from './assets/manduxLogo.png'
 
 
 
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <div className="container">
+       <img src={logo} alt="Logo" className="app-logo" />
       <div className="card">
         <Navbar selected={selected} onSelect={setSelected} />
         {componentsMap[selected]}
