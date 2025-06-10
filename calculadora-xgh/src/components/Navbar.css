@@ -1,0 +1,29 @@
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  justify-content: center;
+}
+
+.nav-btn {
+  background-color: #2b2b2b;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.nav-btn:hover {
+  background-color: #03dac6;
+  color: #000;
+}
+
+.nav-btn.active {
+  background-color: #03dac6;
+  color: #000;
+  font-weight: bold;
+}
