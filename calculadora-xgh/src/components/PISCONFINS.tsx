@@ -3,12 +3,27 @@ import './Form.css';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
+
+type RegimeTributario = 'SIMPLES_NACIONAL' | 'LUCRO_PRESUMIDO' | 'LUCRO_REAL';
+type TipoOperacao = 'VENDA_DE_MERCADORIA' | 'PRESTACAO_DE_SERVICO';
+
+const regimes: { label: string; value: RegimeTributario }[] = [
+  { label: 'Simples Nacional', value: 'SIMPLES_NACIONAL' },
+  { label: 'Lucro Presumido', value: 'LUCRO_PRESUMIDO' },
+  { label: 'Lucro Real', value: 'LUCRO_REAL' }
+];
+
+const operacoes: { label: string; value: TipoOperacao }[] = [
+  { label: 'Venda de Mercadoria', value: 'VENDA_DE_MERCADORIA' },
+  { label: 'Prestação de Serviço', value: 'PRESTACAO_DE_SERVICO' }
+];
+
 export default function PISCONFINS() {
   const [valorTotal, setValorTotal] = useState('');
   const [aliquotaPis, setAliquotaPis] = useState('');
   const [aliquotaCofins, setAliquotaCofins] = useState('');
-  const [regimeTributarioEmpresa, setRegimeTributarioEmpresa] = useState('SIMPLES_NACIONAL'); 
-  const [tipoOperacao, setTipoOperacao] = useState('VENDA_DE_MERCADORIA'); 
+  const [regimeTributarioEmpresa, setRegimeTributarioEmpresa] = useState<RegimeTributario>('SIMPLES_NACIONAL'); 
+  const [tipoOperacao, setTipoOperacao] = useState<TipoOperacao>('VENDA_DE_MERCADORIA'); 
   const [baseCalculoManualPisCofins, setBaseCalculoManualPisCofins] = useState('');
   const [valorExclusoesBaseCalculo, setValorExclusoesBaseCalculo] = useState('');
 
@@ -96,16 +111,23 @@ export default function PISCONFINS() {
       />
 
       <label>Regime Tributário</label>
-      <select value={regimeTributarioEmpresa} onChange={(e) => setRegimeTributarioEmpresa(e.target.value)}>
-        <option value="SIMPLES_NACIONAL">Simples Nacional</option>
-        <option value="LUCRO_PRESUMIDO">Lucro Presumido</option>
-        <option value="LUCRO_REAL">Lucro Real</option>
+      <select
+        value={regimeTributarioEmpresa}
+        onChange={(e) => setRegimeTributarioEmpresa(e.target.value as RegimeTributario)}
+      >
+        {regimes.map(({ label, value }) => (
+          <option key={value} value={value}>{label}</option>
+        ))}
       </select>
 
       <label>Tipo de Operação</label>
-      <select value={tipoOperacao} onChange={(e) => setTipoOperacao(e.target.value)}>
-        <option value="VENDA">Venda</option>
-        <option value="COMPRA">Compra</option>
+      <select
+        value={tipoOperacao}
+        onChange={(e) => setTipoOperacao(e.target.value as TipoOperacao)}
+      >
+        {operacoes.map(({ label, value }) => (
+          <option key={value} value={value}>{label}</option>
+        ))}
       </select>
 
       <label>Base de Cálculo Manual (se aplicável)</label>
