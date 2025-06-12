@@ -8,7 +8,6 @@ export default function ISS() {
   const [aliquotaISS, setAliquotaISS] = useState('');
 
   const [valorISSCalculado, setValorISSCalculado] = useState('');
-  const [valorServicoSemISS, setValorServicoSemISS] = useState('');
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -37,7 +36,6 @@ export default function ISS() {
       const data = await response.json();
 
       setValorISSCalculado(parseFloat(data.valorISSCalculado).toFixed(2));
-      setValorServicoSemISS(parseFloat(data.valorServicoSemISS).toFixed(2));
     } catch (err: any) {
       setError(err.message || 'Erro desconhecido');
     } finally {
@@ -74,7 +72,6 @@ export default function ISS() {
       {valorISSCalculado && (
         <div className="result">
           <p><strong>Valor ISS Calculado:</strong> R$ {valorISSCalculado}</p>
-          <p><strong>Valor do Serviço sem ISS:</strong> R$ {valorServicoSemISS}</p>
         </div>
       )}
     </div>

@@ -8,8 +8,8 @@ import ICMSDIFAL from './components/ICMSDIFAL'
 import ISS from './components/ISS'
 import ICMSST from './components/ICMSST'
 import IPI from './components/IPI'
-import PISCONFINS from './components/PISCONFINS'
 import logo from './assets/manduxLogo.png'
+import PISCOFINS from './components/PISCOFINS'
 
 
 
@@ -21,7 +21,7 @@ const componentsMap = {
   ICMSST: <ICMSST />,
   IPI: <IPI />,
   ISS: <ISS />,
-  PISCONFINS: <PISCONFINS />,
+  PISCOFINS: <PISCOFINS />,
 
 }
 

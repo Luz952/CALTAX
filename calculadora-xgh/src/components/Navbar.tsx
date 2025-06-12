@@ -6,8 +6,12 @@ type Props = {
 }
 
 const impostos = [
-  'CBS', 'IBS', 'ICMS', 'ICMSDIFAL', 'ICMSST', 'IPI', 'ISS', 'PISCONFINS'
+  'CBS', 'IBS', 'ICMS', 'ICMSDIFAL', 'ICMSST', 'IPI', 'ISS', 'PISCOFINS'
 ]
+
+const labels: Record<string, string> = {
+  'PISCOFINS': 'PIS/COFINS',
+}
 
 export default function Navbar({ selected, onSelect }: Props) {
   return (
@@ -18,7 +22,7 @@ export default function Navbar({ selected, onSelect }: Props) {
           onClick={() => onSelect(imp)}
           className={`nav-btn ${selected === imp ? 'active' : ''}`}
         >
-          {imp}
+          {labels[imp] || imp}
         </button>
       ))}
     </div>

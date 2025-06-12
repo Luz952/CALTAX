@@ -18,7 +18,7 @@ const operacoes: { label: string; value: TipoOperacao }[] = [
   { label: 'Prestação de Serviço', value: 'PRESTACAO_DE_SERVICO' }
 ];
 
-export default function PISCONFINS() {
+export default function PISCOFINS() {
   const [valorTotal, setValorTotal] = useState('');
   const [aliquotaPis, setAliquotaPis] = useState('');
   const [aliquotaCofins, setAliquotaCofins] = useState('');
